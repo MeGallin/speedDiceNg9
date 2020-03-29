@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TypeWriterService } from '../../../services/type-writer.service';
 
 @Component({
   selector: 'app-dice',
@@ -21,10 +22,19 @@ export class DiceComponent implements OnInit {
     'Moola! Get 500 from each player and GO to HOME!';
   public passOnDice: string;
 
-  constructor() {}
+  public typeWriterText = 'SPEED DICE';
 
-  ngOnInit(): void {}
+  constructor(private _typeWriter: TypeWriterService) {}
+
+  ngOnInit(): void {
+    this._typeWriter
+      .typeWriter(this.typeWriterText)
+      .subscribe(r => (this.typeWriterText = r));
+  }
   spinDice() {
+    this.double = null;
+    this.triple = null;
+
     this.diceOne = Math.floor(Math.random() * 6 + 1);
     this.diceTwo = Math.floor(Math.random() * 6 + 1);
     this.diceThree = Math.floor(Math.random() * 6 + 1);
@@ -57,6 +67,7 @@ export class DiceComponent implements OnInit {
       this.diceThree === this.diceOne
     ) {
       this.double = true;
+      this.triple = false;
     } else {
       this.double = false;
       this.passOnDice = 'Please pass on the dice';
