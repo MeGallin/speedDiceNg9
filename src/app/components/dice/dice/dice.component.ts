@@ -54,15 +54,15 @@ export class DiceComponent implements OnInit {
 
     setTimeout(() => {
       this.diceTwoView = null;
-    }, 1000);
+    }, 750);
 
     setTimeout(() => {
       this.diceThreeView = null;
-    }, 1500);
+    }, 1000);
 
     setTimeout(() => {
       this.total = this.diceOne + this.diceTwo + this.diceThree;
-    }, 2000);
+    }, 1250);
 
     // Checking for doubles
     if (

@@ -148,15 +148,24 @@
 
   <div *ngIf="!double" class="button-inner-wrapper">
     <button class="btn btn info" (click)="spinDice()">
-      SPIN <sup class="chip">{{clickCounter}}</sup>
+      SPIN
     </button>
+    <div class="text-center text-small">
+      <div>SPINS</div>
+      {{clickCounter}}
+    </div>
   </div>
 
   <div class="dice-inner-wrapper">
     <div *ngIf="double;else passOn">
       <button class="btn btn warning" (click)="spinDice()">
-        {{doubleMessage}} <sup class="chip">{{clickCounter}}</sup>
+        {{doubleMessage}}
       </button>
+      <div class="text-center text-small">
+        <div>SPINS</div>
+        {{clickCounter}}
+      </div>
+
       <!-- <div class="h2">{{doubleMessage}}</div> -->
     </div>
     <ng-template #passOn>
