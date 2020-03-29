@@ -1,0 +1,168 @@
+<section id="dice">
+  <div class="dice-inner-wrapper">
+    <div class="h1">
+      <span *ngIf="diceOneView === diceOne">{{diceOneView}}</span>
+      <span *ngIf="diceTwoView === diceTwo">{{diceTwoView}}</span>
+      <span *ngIf="diceThreeView === diceThree">{{diceThreeView}}</span>
+      <span *ngIf="diceThreeView === null">{{total}}</span>
+    </div>
+  </div>
+  <div class="dice-inner-wrapper">
+    <div [ngSwitch]="diceOne">
+      <div *ngSwitchCase="1">
+        <img class="animated rollIn" src="../../../../assets/1.png" alt="one" />
+      </div>
+      <div *ngSwitchCase="2">
+        <img class="animated rollIn" src="../../../../assets/2.png" alt="two" />
+      </div>
+      <div *ngSwitchCase="3">
+        <img
+          class="animated rollIn"
+          src="../../../../assets/3.png"
+          alt="three"
+        />
+      </div>
+      <div *ngSwitchCase="4">
+        <img
+          class="animated rollIn"
+          src="../../../../assets/4.png"
+          alt="four"
+        />
+      </div>
+      <div *ngSwitchCase="5">
+        <img
+          class="animated rollIn"
+          src="../../../../assets/5.png"
+          alt="five"
+        />
+      </div>
+      <div *ngSwitchCase="6">
+        <img class="animated rollIn" src="../../../../assets/6.png" alt="6" />
+      </div>
+      <div *ngSwitchDefault></div>
+    </div>
+
+    <div [ngSwitch]="diceTwo">
+      <div *ngSwitchCase="1">
+        <img
+          class="animated bounceInRight"
+          src="../../../../assets/1.png"
+          alt="one"
+        />
+      </div>
+      <div *ngSwitchCase="2">
+        <img
+          class="animated bounceInRight"
+          src="../../../../assets/2.png"
+          alt="two"
+        />
+      </div>
+      <div *ngSwitchCase="3">
+        <img
+          class="animated bounceInRight"
+          src="../../../../assets/3.png"
+          alt="three"
+        />
+      </div>
+      <div *ngSwitchCase="4">
+        <img
+          class="animated bounceInRight"
+          src="../../../../assets/4.png"
+          alt="four"
+        />
+      </div>
+      <div *ngSwitchCase="5">
+        <img
+          class="animated bounceInRight"
+          src="../../../../assets/5.png"
+          alt="five"
+        />
+      </div>
+      <div *ngSwitchCase="6">
+        <img
+          class="animated bounceInRight"
+          src="../../../../assets/6.png"
+          alt="6"
+        />
+      </div>
+      <div *ngSwitchDefault>
+        Welcome to SPEED dice.
+      </div>
+    </div>
+
+    <div [ngSwitch]="diceThree">
+      <div *ngSwitchCase="1">
+        <img
+          class="animated bounceInDown"
+          src="../../../../assets/1.png"
+          alt="one"
+        />
+      </div>
+      <div *ngSwitchCase="2">
+        <img
+          class="animated bounceInDown"
+          src="../../../../assets/2.png"
+          alt="two"
+        />
+      </div>
+      <div *ngSwitchCase="3">
+        <img
+          class="animated bounceInDown"
+          src="../../../../assets/3.png"
+          alt="three"
+        />
+      </div>
+      <div *ngSwitchCase="4">
+        <img
+          class="animated bounceInDown"
+          src="../../../../assets/4.png"
+          alt="four"
+        />
+      </div>
+      <div *ngSwitchCase="5">
+        <img
+          class="animated bounceInDown"
+          src="../../../../assets/5.png"
+          alt="five"
+        />
+      </div>
+      <div *ngSwitchCase="6">
+        <img
+          class="animated bounceInDown"
+          src="../../../../assets/6.png"
+          alt="6"
+        />
+      </div>
+      <div *ngSwitchDefault></div>
+    </div>
+  </div>
+
+  <div *ngIf="!double" class="button-inner-wrapper">
+    <button class="btn btn info" (click)="spinDice()">SPIN</button>
+  </div>
+
+  <div class="dice-inner-wrapper">
+    <div *ngIf="double;else passOn">
+      <button class="btn btn warning" (click)="spinDice()">
+        {{doubleMessage}}
+      </button>
+      <!-- <div class="h2">{{doubleMessage}}</div> -->
+    </div>
+    <ng-template #passOn>
+      <span class="animated infinite pulse">{{passOnDice}}</span>
+    </ng-template>
+
+    <div *ngIf="triple && total !== 18">
+      <span class="h2">{{tripleMessage}}</span>
+      <div class="animated infinite pulse delay-2s">
+        Please pass on the dice
+      </div>
+    </div>
+    <div *ngIf="triple && total === 18">
+      <span class="animated infinite flash delay-2s h2 max-spin"
+        >{{maxSpinMessage}}</span
+      >
+      <div>Please pass on the dice</div>
+    </div>
+  </div>
+</section>

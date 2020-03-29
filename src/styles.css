@@ -1,1 +1,24 @@
-/* You can add global styles to this file, and also import other style files */
+/* Create variables*/
+:root {
+  --background-colour: rgba(51, 51, 51, 1);
+  --text-colour: white;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--background-colour);
+  color: var(--text-colour);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.border-temp {
+  border: 4px solid yellowgreen;
+}
