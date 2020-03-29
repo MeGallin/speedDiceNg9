@@ -3,19 +3,20 @@
   flex-direction: column;
 }
 #dice .h1 {
-  font-size: 4em;
+  font-size: 2em;
 }
 #dice .h2 {
-  font-size: 2em;
+  font-size: 1.4em;
 }
 .max-spin {
   color: indianred;
 }
 .dice-inner-wrapper {
-  width: 60vw;
+  margin: 0 auto;
+  width: 90vw;
   display: flex;
   justify-content: space-evenly;
-  min-height: 120px;
+  min-height: 90px;
 }
 .button-inner-wrapper {
   display: flex;

@@ -1,11 +1,15 @@
 <section id="dice">
+  <app-counter></app-counter>
   <div class="dice-inner-wrapper">
-    <div class="h1" *ngIf="diceOneView || diceTwoView || diceThreeView|| total">
+    <div
+      class="h1"
+      *ngIf="diceOneView || diceTwoView || diceThreeView || total"
+    >
       ...move
-      <span *ngIf="diceOneView === diceOne">{{diceOneView}}</span>
-      <span *ngIf="diceTwoView === diceTwo">{{diceTwoView}}</span>
-      <span *ngIf="diceThreeView === diceThree">{{diceThreeView}}</span>
-      <span *ngIf="diceThreeView === null">{{total}} </span>
+      <span *ngIf="diceOneView === diceOne">{{ diceOneView }}</span>
+      <span *ngIf="diceTwoView === diceTwo">{{ diceTwoView }}</span>
+      <span *ngIf="diceThreeView === diceThree">{{ diceThreeView }}</span>
+      <span *ngIf="diceThreeView === null">{{ total }} </span>
       spaces...
     </div>
   </div>
@@ -90,7 +94,7 @@
       <div *ngSwitchDefault>
         <p>
           Welcome to
-          <span class="h2"> {{typeWriterText}} </span> .
+          <span class="h2"> {{ typeWriterText }} </span> .
         </p>
         <p>
           Use it to play monopoly to finish a game in a
@@ -152,36 +156,36 @@
     </button>
     <div class="text-center text-small">
       <div>SPINS</div>
-      {{clickCounter}}
+      {{ clickCounter }}
     </div>
   </div>
 
   <div class="dice-inner-wrapper">
-    <div *ngIf="double;else passOn">
+    <div *ngIf="double; else passOn">
       <button class="btn btn warning" (click)="spinDice()">
-        {{doubleMessage}}
+        {{ doubleMessage }}
       </button>
       <div class="text-center text-small">
         <div>SPINS</div>
-        {{clickCounter}}
+        {{ clickCounter }}
       </div>
 
       <!-- <div class="h2">{{doubleMessage}}</div> -->
     </div>
     <ng-template #passOn>
-      <span class="animated infinite pulse">{{passOnDice}}</span>
+      <span class="animated infinite pulse">{{ passOnDice }}</span>
     </ng-template>
 
     <div *ngIf="triple && total !== 18">
-      <span class="h2">{{tripleMessage}}</span>
+      <span class="h2">{{ tripleMessage }}</span>
       <div class="animated infinite pulse delay-2s">
         <p>Please pass on the dice</p>
       </div>
     </div>
     <div *ngIf="triple && total === 18">
-      <span class="animated infinite flash delay-2s h2 max-spin"
-        >{{maxSpinMessage}}</span
-      >
+      <span class="animated infinite flash delay-2s h2 max-spin">{{
+        maxSpinMessage
+      }}</span>
       <p>Please pass on the dice</p>
     </div>
   </div>
