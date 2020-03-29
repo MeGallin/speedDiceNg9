@@ -24,6 +24,8 @@ export class DiceComponent implements OnInit {
 
   public typeWriterText = 'SPEED DICE';
 
+  public clickCounter: number = 0;
+
   constructor(private _typeWriter: TypeWriterService) {}
 
   ngOnInit(): void {
@@ -32,6 +34,8 @@ export class DiceComponent implements OnInit {
       .subscribe(r => (this.typeWriterText = r));
   }
   spinDice() {
+    // Counter
+    this.clickCounter += 1;
     this.double = null;
     this.triple = null;
 

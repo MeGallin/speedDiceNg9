@@ -21,6 +21,14 @@
   /* border: green 2px solid; */
 }
 
+.chip {
+  padding: 8px 10px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 12px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+}
+
 .btn {
   border: 2px solid black;
   background-color: white;

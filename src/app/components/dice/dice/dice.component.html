@@ -1,10 +1,12 @@
 <section id="dice">
   <div class="dice-inner-wrapper">
-    <div class="h1">
+    <div class="h1" *ngIf="diceOneView || diceTwoView || diceThreeView|| total">
+      ...move
       <span *ngIf="diceOneView === diceOne">{{diceOneView}}</span>
       <span *ngIf="diceTwoView === diceTwo">{{diceTwoView}}</span>
       <span *ngIf="diceThreeView === diceThree">{{diceThreeView}}</span>
-      <span *ngIf="diceThreeView === null">{{total}}</span>
+      <span *ngIf="diceThreeView === null">{{total}} </span>
+      spaces...
     </div>
   </div>
   <div class="dice-inner-wrapper">
@@ -145,13 +147,15 @@
   </div>
 
   <div *ngIf="!double" class="button-inner-wrapper">
-    <button class="btn btn info" (click)="spinDice()">SPIN</button>
+    <button class="btn btn info" (click)="spinDice()">
+      SPIN <sup class="chip">{{clickCounter}}</sup>
+    </button>
   </div>
 
   <div class="dice-inner-wrapper">
     <div *ngIf="double;else passOn">
       <button class="btn btn warning" (click)="spinDice()">
-        {{doubleMessage}}
+        {{doubleMessage}} <sup class="chip">{{clickCounter}}</sup>
       </button>
       <!-- <div class="h2">{{doubleMessage}}</div> -->
     </div>
@@ -162,14 +166,14 @@
     <div *ngIf="triple && total !== 18">
       <span class="h2">{{tripleMessage}}</span>
       <div class="animated infinite pulse delay-2s">
-        Please pass on the dice
+        <p>Please pass on the dice</p>
       </div>
     </div>
     <div *ngIf="triple && total === 18">
       <span class="animated infinite flash delay-2s h2 max-spin"
         >{{maxSpinMessage}}</span
       >
-      <div>Please pass on the dice</div>
+      <p>Please pass on the dice</p>
     </div>
   </div>
 </section>
